@@ -8,7 +8,8 @@ end
 
 File.open(ARGV[0]) do |f|
   while(line = f.gets)
-    if line =~ /url\(['"](.*)['"]\)/
+    if line =~ /url\(['"]*(.+)['"]*\)/
+      p line
       now = String.new $1
       if(now=~/^http:\/\//)
         p `curl -O #{now}`
