@@ -10,6 +10,7 @@ File.open(ARGV[0]) do |f|
       now = String.new $1
       path="#{now}"
       url = "#{path}"
+      next if 'about:blank'==url
       p cmd="wget -x #{url}"
       p `#{cmd}`
     end

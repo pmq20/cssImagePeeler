@@ -19,7 +19,8 @@ after = '/'+tails.join('/')+'/'
       end
 path=File.expand_path(path)
 url = "#{heads[0]}://#{heads[1]}#{path}"
-      p cmd="curl -O #{url}"
+url.gsub!('///','/')
+      p cmd="wget -x #{url}"
       p `#{cmd}`
     end
   end
